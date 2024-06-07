@@ -24,7 +24,7 @@ const baseQuery = fetchBaseQuery({
 const baseQueryWithHeaders = async (
   args: FetchArgs,
   api: BaseQueryApi,
-  extraOptions: ExtraOptions
+  extraOptions: ExtraOptions,
 ): Promise<
   QueryReturnValue<unknown, FetchBaseQueryError, FetchBaseQueryMeta>
 > => {
@@ -39,7 +39,7 @@ const baseQueryWithHeaders = async (
       },
     },
     api,
-    extraOptions
+    extraOptions,
   );
 
   if ([401, 520].includes(result.error?.status as number)) {
@@ -53,7 +53,7 @@ const baseQueryWithHeaders = async (
         },
       },
       api,
-      extraOptions
+      extraOptions,
     );
 
     if (refreshResult.data) {
@@ -69,7 +69,7 @@ const baseQueryWithHeaders = async (
           },
         },
         api,
-        extraOptions
+        extraOptions,
       );
     } else {
       api.dispatch(logOut());

@@ -78,7 +78,7 @@ export function DataTable<TData, TValue>({
                           ? null
                           : flexRender(
                               header.column.columnDef.header,
-                              header.getContext()
+                              header.getContext(),
                             )}
                       </TableHead>
                     );
@@ -98,7 +98,7 @@ export function DataTable<TData, TValue>({
                         <TableCell key={cell.id}>
                           {flexRender(
                             cell.column.columnDef.cell,
-                            cell.getContext()
+                            cell.getContext(),
                           )}
                         </TableCell>
                       ))}
@@ -134,7 +134,7 @@ export function DataTable<TData, TValue>({
                   </p>
                   <Select
                     defaultValue={String(
-                      table.getState()?.pagination?.pageSize
+                      table.getState()?.pagination?.pageSize,
                     )}
                     onValueChange={(e) => {
                       table.setPageSize(Number(e));
@@ -168,7 +168,7 @@ export function DataTable<TData, TValue>({
                     disabled={!table.getCanPreviousPage()}
                     className={cn(
                       "bg-transparent border-none",
-                      !table.getCanPreviousPage() && "cursor-not-allowed"
+                      !table.getCanPreviousPage() && "cursor-not-allowed",
                     )}
                   >
                     <ChevronLeft className="w-5 h-5" />
@@ -180,7 +180,7 @@ export function DataTable<TData, TValue>({
                     disabled={!table.getCanNextPage()}
                     className={cn(
                       "bg-transparent border-none",
-                      !table.getCanNextPage() && "cursor-not-allowed"
+                      !table.getCanNextPage() && "cursor-not-allowed",
                     )}
                   >
                     <ChevronRight className="w-5 h-5" />
